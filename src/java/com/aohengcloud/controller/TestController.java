@@ -14,8 +14,7 @@ public class TestController {
         }
     }
 
-    private  String  showLove() {
-
+    private static String  showLove() {
         return "love";
     }
 
