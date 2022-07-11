@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Aoheng</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <meta name="description" content="Aoheng">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+  <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdn.staticfile.org/docsify/4.12.2/themes/vue.min.css">
+<!--  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/style.min.css">-->
+  <style>
+    .markdown-section code {
+      font-weight: 400;
+    }
+  </style>
+  <!--baidu统计-->
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?73459ebc49330a13c65186089af73908";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+</head>
+<body>
+<nav>
+  <ul>
+    <li>
+      主页
+      <ul>
+        <li><a href="#">封面</a></li>
+        <li><a href="#/README">首页</a></li>
+      </ul>
+    </li>
+    <li>
+      分类
+      <ul>
+        <li><a href="#/java/spring/Java项目开发规范V1.0.md">Java基础</a></li>
+        <li><a href="#/java/mysql/MySQL数据库规范V1.0.md">Mysql数据库</a></li>
+        <li><a href="#/devops/docker/Docker快速入门.md">Docker&K8s</a></li>
+        <li><a href="#/devops/DevOps(华为云)流水线配置.md">DevOps</a></li>
+        <li><a href="#/devops/prometheus/Prometheus监控介绍.md">服务监控</a></li>
+        <li><a href="https://uutool.cn/info-emoji/" target="_blank">Emoji在线表情</a></li>
+      </ul>
+    </li>
+    <li>
+      精品推荐
+      <ul>
+        <li><a href="#/java/spring/bootcore基础框架.md">bootcore核心框架</a></li>
+        <li><a href="#/java/mysql/ShardingJdbc分库分表.md">ShardingJdbc分库分表</a></li>
+        <li><a href="#/java/redis/Redis核心要点.md">Redis核心要点</a></li>
+        <li><a href="#/java/springboot/Java的JVM垃圾回收.md">Java的JVM垃圾回收</a></li>
+        <li><a href="#/java/springboot/Java多线程以及线程池.md">Java多线程以及线程池</a></li>
+        <li><a href="#/note/cnhis/Liquibase使用指南.md">Liquibase使用指南</a></li>
+      </ul>
+    </li>
+    <li>
+      房地产
+      <ul>
+        <li><a href="https://dg.lianjia.com/xiaoqu/5420021151966515/" target="_blank">南峰华桂园</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+<div id="app"></div>
+<script>
+  window.$docsify = {
+    name: 'AohengCloud',
+    repo: 'https://github.com/aoheng',
+    auto2top: true,
+    coverpage: true,
+    loadSidebar: true,
+    pagination: {
+      previousText: "上一篇",
+      nextText: "下一篇",
+      crossChapter: true,
+      crossChapterText: true,
+    },
+    search: {
+      paths: 'auto',
+      placeholder: '🔍 搜索 ',
+      noData: '😞 No Results! ',
+      depth: 6
+    },
+    count: {
+      countable: true,
+      position: 'bottom',
+      fontsize: "0.9em",
+      color: "rgb(90,90,90)",
+      language: 'chinese'
+    },
+    plantuml: {
+      skin: 'default',
+    },
+    darklightTheme: {
+      defaultTheme: 'light',
+      siteFont: 'Source Sans Pro,Helvetica Neue,Arial,sans-serif',
+      codeFontFamily: 'Roboto Mono, Monaco, courier, monospace',
+      bodyFontSize: '15px',
+      dark: {
+        background: 'rgb(28,32,34)',
+        highlightColor: '#e96900',
+        codeBackgroundColor: 'rgb(34,39,46)',
+        codeTextColor: '#b4b4b4',
+      },
+      light: {
+        highlightColor: '#e96900',
+      }
+    },
+    plugins: [
+      function (hook, vm) {
+        hook.beforeEach(function (content) {
+          const en = vm.route.file.indexOf("README_EN") > -1;
+          if (/githubusercontent\.com/.test(vm.route.file)) {
+            url = vm.route.file
+                    .replace("raw.githubusercontent.com", "github.com")
+                    .replace(/\/main/, "/blob/main");
+          } else {
+            url =
+                    "https://github.com/aoheng/aohengCloud/tree/master/docs" +
+                    vm.route.file;
+          }
+          const github = `[GitHub](${url})`;
+          const editHtml = en
+                  ? `:memo: Edit on ${github}\n`
+                  : `:memo: 在 ${github}编辑\n`;
+          if (vm.route.path == "/") {
+            return editHtml + content;
+          }
+          const subscription = `
+                        <h2>打赏</h2>
+                        如果您觉得作者的文章对您有所帮助，可以打赏 <b style="color: #e96900">8.88元</b> 支持一下作者喝一杯打折的咖啡☕，这也将成为作者持续更新，持续开源文章的动力。
+                        </br>
+                        </br>
+                        当然，也可以关注我GitHub（<b style="color: #e96900"><a href="https://github.com/aoheng" target="_blank">GitHub</a></b>），一起交流进步。
+                        </br>
+                        </br>
+                        <table>
+                            <tr>
+                              <td align="center" style="width: 200px;">
+                                <a href="https://github.com/aoheng">
+                                  <img src="./assets/haohao/wechat_pay.jpg" style="width: 1080px;"><br>
+                                  <sub>微信扫码打赏</sub>
+                                </a><br>
+                              </td>
+                              <td align="center" style="width: 200px;">
+                                <a href="https://github.com/aoheng">
+                                  <img src="./assets/haohao/alipay_pay.jpg" style="width: 1080px;"><br>
+                                  <!--<sub>支付宝打赏</sub>-->
+                                </a><br>
+                              </td>
+                            </tr>
+                        </table>
+                    `;
+          return editHtml + content + `<br>` + subscription;
+        });
+        hook.afterEach(function (html) {
+          const footer = [
+            "<footer style='text-align: center;'>",
+            '<span>Copyright © 2015-2022 <a href="https://github.com/aoheng" target="_blank">Aoheng</a>. All rights reserved.',
+            "</footer>",
+          ].join("");
+          return html + footer;
+        });
+      },
+    ],
+  };
+</script>
+<!-- Docsify v4 -->
+<!--<script src="//cdn.jsdelivr.net/npm/docsify@4"></script>-->
+<!--<script src="//unpkg.com/mermaid/dist/mermaid.js"></script>
+<script src="//unpkg.com/docsify-mermaid@latest/dist/docsify-mermaid.js"></script>
+<script src="//unpkg.com/docsify-plantuml/dist/docsify-plantuml.min.js"></script>-->
+<!--<script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-json.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-java.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-bash.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-cpp.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-c.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-python.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-markup.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-markdown.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-sql.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-yaml.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-properties.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/prismjs/components/prism-xml-doc.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/docsify-copy-code@2.1.1/dist/docsify-copy-code.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+<script src="//cdn.jsdelivr.net/npm/docsify-darklight-theme@latest/dist/index.min.js"></script>-->
+<!--<script src="//unpkg.com/docsify-count/dist/countable.js"></script>-->
+<script src="https://cdn.staticfile.org/docsify/4.12.2/docsify.min.js"></script>
+<script src="https://cdn.staticfile.org/docsify/4.12.2/plugins/emoji.min.js"></script>
+<script src="https://cdn.staticfile.org/docsify/4.12.2/plugins/search.min.js"></script>
+<script src="https://cdn.staticfile.org/docsify/4.12.2/plugins/zoom-image.min.js"></script>
+<script src="https://cdn.staticfile.org/prism/1.26.0/components/prism-java.min.js"></script>
+<script src="https://cdn.wwads.cn/js/makemoney.js"></script>
+
+<!--baidu统计-->
+<script>
+  var _hmt = _hmt || [];
+  (function() {
+    var hm = document.createElement("script");
+    hm.src = "https://hm.baidu.com/hm.js?73459ebc49330a13c65186089af73908";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+</body>
+</html>
