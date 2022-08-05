@@ -1,5 +1,17 @@
 # docker指令
 
+
+
+## nginx
+
+重启nginx
+
+```output
+sudo systemctl restart nginx
+```
+
+
+
 ## redis
 
 1.docker启动redis指令：
