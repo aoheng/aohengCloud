@@ -1,17 +1,5 @@
 # docker指令
 
-
-
-## nginx
-
-重启nginx
-
-```output
-sudo systemctl restart nginx
-```
-
-
-
 ## redis
 
 1.docker启动redis指令：
@@ -56,6 +44,20 @@ docker run --env MODE=standalone --name nacos -d -p 8848:8848 nacos/nacos-server
 
 
 
+## nginx
+
+重启nginx三种指令
+
+```
+service nginx restart
+
+systemctl restart nginx
+
+/usr/sbin/nginx -s reload
+```
+
+
+
 ## 启动容器镜像
 
 1.启动命令
@@ -69,15 +71,6 @@ docker-compose up -d  CONTAINER_ID(容器ID)
 ```
 docker run -d -p 2181:62181 --name zk --restart always zookeeper
 ```
-
-在启动容器的时候可以通过 -v双向绑定本地的某文件，这样任意修改哪一个都会同步变化`docker run [OPTIONS] IMAGE [COMMAND] [ARG...]`
-
-- -p: 指定端口映射，格式为：主机(宿主)端口:容器端口
-- –volume , -v: 绑定一个数据卷
-- -d: 后台运行容器，并返回容器ID；
-- –name=“redis”: 为容器指定一个名称；
-- -e username=“ritchie”: 设置环境变量；
-- -m :设置容器使用内存最大值；
 
 
 
@@ -94,6 +87,14 @@ docker logs -f -t --tail n  CONTAINER_ID(容器ID)
 ```
 docker logs --since 30m CONTAINER_ID(容器ID)
 ```
+
+3.查看关键字日志
+
+```
+docker logs -f --tail n  CONTAINER_ID(容器ID) |grep "关键字"
+```
+
+
 
 
 
@@ -136,11 +137,7 @@ vim docker-build-project.sh
 #### 1.4 保存镜像到本地
 
 ```
-docker save -o open-api-service-V2.9.16.3.tar harbor.cnhis.com/cnhis-wx/cloud-health-open-api-service:Vhotfix2.9.16.3-RELEASE-RC1
-docker save -o wx-service-Vhotfix2.9.16.2.tar harbor.cnhis.com/cnhis-wx/cloud-health-wx-service:Vhotfix2.9.16.2-RELEASE-RC1
-docker save -o wx-pay-service-Vhotfix2.9.16.2.tar harbor.cnhis.com/cnhis-wx/cloud-health-wx-pay-service:Vhotfix2.9.16.2-RELEASE-RC1
-docker save -o wx-quartz-Vhotfix2.9.16.2.tar harbor.cnhis.com/cnhis-wx/cloud-health-wx-quartz:Vhotfix2.9.16.2-RELEASE-RC1
-docker save -o wx-rest-Vhotfix2.9.16.10.tar harbor.cnhis.com/cnhis-wx/cloud-health-wx-rest:Vhotfix2.9.16.10-RELEASE-RC1
+docker save -o ***.tar **:**version
 ```
 
 
@@ -148,7 +145,7 @@ docker save -o wx-rest-Vhotfix2.9.16.10.tar harbor.cnhis.com/cnhis-wx/cloud-heal
 #### 1.5启动容器（远程部署启动）
 
 ```
-docker-compose -f docker-compose.yml up --no-deps -d 服务名称（如wx-rest）
+docker-compose -f docker-compose.yml up --no-deps -d 服务名称
 ```
 
 
@@ -156,8 +153,12 @@ docker-compose -f docker-compose.yml up --no-deps -d 服务名称（如wx-rest�
 ### 2.导出log日志
 
 ```
-docker logs -t --since="2022-07-04T16:30:30" --until "2022-07-04T16:38:37"  wx-rest >>logpay3.txt
+docker logs -t --since="2022-07-04T16:30:30" --until "2022-07-04T16:38:37"  CONTAINER_ID(容器ID) >> 名称.txt
 ```
+
+
+
+
 
 
 
