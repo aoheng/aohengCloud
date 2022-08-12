@@ -11,7 +11,7 @@ docker run -p 6379:6379 --name redis -d redis --requirepass "password"
 2.进入redis
 
 ```
-docker exec -it redis redis-cli
+docker exec -it redis(容器服务名称) redis-cli
 ```
 
 3.启动redis，`-d`代表后台启动
