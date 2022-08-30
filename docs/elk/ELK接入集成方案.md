@@ -13,9 +13,6 @@ Logstash事件处理有三个阶段：inputs → filters → outputs。是一个
 
 ![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f9b5abe7bd214c96ab65ad5cec1fa9e0~tplv-k3u1fbpfcp-watermark.image?)
 
-## ELK搭建部署
-
-![image.png](https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/f9b5abe7bd214c96ab65ad5cec1fa9e0~tplv-k3u1fbpfcp-watermark.image?)
 
 ### docker-compose.yml
 
