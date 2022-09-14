@@ -110,13 +110,15 @@ npm install -g cnpm --registry=https://registry.npmmirror.com
 
 
 
-## 微信部署步骤
-
-### 1.wx小程序打包部署
+### 1.Docker镜像打包部署
 
 #### 1.1 切换目录 
 
-wxdb
+```
+cd 目录
+```
+
+
 
 #### 1.2 修改版本
 
@@ -134,7 +136,7 @@ vim docker-build-project.sh
 
 
 
-#### 1.4 保存镜像到本地
+#### 1.4 镜像导出***.tar
 
 ```
 docker save -o ***.tar **:**version
@@ -142,7 +144,15 @@ docker save -o ***.tar **:**version
 
 
 
-#### 1.5启动容器（远程部署启动）
+#### 1.5 镜像导入***.tar
+
+```
+docker load -i **.tar
+```
+
+
+
+#### 1.6启动容器（远程部署启动）
 
 ```
 docker-compose -f docker-compose.yml up --no-deps -d 服务名称
