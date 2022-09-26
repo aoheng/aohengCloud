@@ -14,7 +14,15 @@
 
 **数据库设计**
 
-1.基础字段：id（int8）,org_id(int4)，created_by（int8），updated_by（int8），delete_flag，created_date（timestamp），updated_date（timestamp），遵循驼峰命名。
+1.基础字段：遵循驼峰命名。
+
+- id（int8）,
+- org_id(int4)，
+- created_by（int8），
+- updated_by（int8），
+- delete_flag，
+- created_date（timestamp），
+- updated_date（timestamp），
 
 2.数据表，用delete_flag标识是否删除（bool类型，false/true），杜绝占用status字段。
 
