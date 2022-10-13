@@ -279,9 +279,9 @@ services:
       PARAMS: "
       --server.port=8080
       --server.servlet.context-path=/xxl-job-admin
-      --spring.datasource.url=jdbc:postgresql://192.168.1.186:5432/xxl_job?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&serverTimezone=Asia/Shanghai
+      --spring.datasource.url=jdbc:postgresql://127.0.0.1:5432/xxl_job?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&serverTimezone=Asia/Shanghai
       --spring.datasource.username=postgres
-      --spring.datasource.password=postgres_test186"
+      --spring.datasource.password=postgres"
 ```
 
 启动命令：
