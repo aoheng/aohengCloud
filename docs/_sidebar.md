@@ -32,6 +32,7 @@
 
     - [🐳Docker&K8S]
         - [Docker快速入门](/devops/docker/Docker快速入门.md)
+        - [docker构建jar包镜像](/devops/docker/docker构建jar包镜像.md)
         - [Docker制作镜像](/devops/docker/Docker制作镜像.md)
 
     - [🍃DevOps]
