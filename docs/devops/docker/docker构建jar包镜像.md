@@ -57,7 +57,7 @@ version: "3.9"
 services:
   xxl-job-admin:
     # docker 镜像
-    image: xxl-job-admin:2.3.1.pg
+    image: kemingheng/xxl-job-admin:2.3.1.pg
     # 容器名称
     container_name: xxl-job-admin
     volumes:
@@ -90,9 +90,21 @@ docker tag [OPTIONS] IMAGE[:TAG] [REGISTRYHOST/][USERNAME/]NAME[:TAG]
 例：docker tag xxl-job-admin:2.3.1.pg kemingheng/xxl-job-admin:2.3.1.pg
 ```
 
-9.推送镜像
+9.**push**推送镜像
 
 ```
 docker push kemingheng/xxl-job-admin:2.3.1.pg
+```
+
+10.查看容器运行jar包
+
+```
+docker exec -it 容器id sh
+```
+
+11.导出容器jar到当前目录
+
+```
+docker cp 容器id:/**.jar ./
 ```
 

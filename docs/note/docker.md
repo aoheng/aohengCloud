@@ -178,10 +178,6 @@ docker logs -t --since="2022-07-04T16:30:30" --until "2022-07-04T16:38:37"  CONT
 
 
 
-
-
-
-
 ## 安装Loki
 
 Docker Compose 下载
@@ -203,6 +199,24 @@ docker exec -it 容器ID sh
 ```
 
 
+
+## 安装Jenkins
+
+拉取镜像
+
+```
+docker pull jenkins/jenkins
+```
+
+启动容器
+
+```
+docker run -d -it -p 9090:8080 --name jenkins-latest -v /home/aoheng/workspace/jenkins:/var/jenkins_home -v /usr/lib/jvm/java-8-openjdk-amd64:/var/jdk -v /usr/local/maven/apache-maven-3.6.3:/var/maven -e JAVA_HOME:/var/jdk -e MAVEN_HOME:/var/maven -e JAVA_OPTS=-Duser.timezone=Asia/Shanghai -u 0 jenkins/jenkins:latest 
+```
+
+查看输出的日志，如果出现 `Permission denied` 类似的错误。需要删除旧容器重新运行。
+
+运行命令加入了`-u 0`重新运行。
 
 
 
