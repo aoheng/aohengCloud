@@ -80,6 +80,12 @@ docker-compose up -d  CONTAINER_ID(容器ID)
 docker run -d -p 2181:2181 --name zk --restart always zookeeper
 ```
 
+3.添加权限--privileged=true
+
+```
+docker run -d --privileged=true 
+```
+
 
 
 ## 查看日志
