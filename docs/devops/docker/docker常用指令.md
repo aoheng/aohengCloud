@@ -56,6 +56,13 @@ systemctl restart nginx
 /usr/sbin/nginx -s reload
 ```
 
+检查nginx配置是否正确
+
+```
+#在nginx目录下
+./sbin/nginx -t
+```
+
 
 
 ## zookeeper
