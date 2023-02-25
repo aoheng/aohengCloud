@@ -108,3 +108,21 @@ docker exec -it 容器id sh
 docker cp 容器id:/**.jar ./
 ```
 
+12.docker移除镜像
+
+```
+docker rmi -f 镜像id
+```
+
+13.删除所有镜像，不删除容器 
+
+```
+docker rmi $(docker images -q)
+```
+
+14.查看docker元数据
+
+```
+docker inspect 镜像id
+```
+

@@ -61,6 +61,9 @@ systemctl restart nginx
 ```
 #在nginx目录下
 ./sbin/nginx -t
+
+重启nginx
+./sbin/nginx -s reload
 ```
 
 
