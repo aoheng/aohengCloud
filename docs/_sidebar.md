@@ -11,6 +11,7 @@
         - [SpringBoot性能优化](/java/springboot/SpringBoot性能优化.md)
         - [Java多线程以及线程池](/java/springboot/Java多线程以及线程池.md)
         - [Java的JVM垃圾回收](/java/springboot/Java的JVM垃圾回收.md)
+        - [Java接口优化技巧](/java/springboot/Java接口优化技巧.md)
 
     - [⚡Mysql]
         - [MySQL数据库规范V1.0](/java/mysql/MySQL数据库规范V1.0.md)
