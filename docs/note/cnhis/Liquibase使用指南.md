@@ -6,10 +6,9 @@ Java 生态下的数据库版本控制工具有 Flyway 和 Liquibase，两者具
 
 
 
-## 互联网医院Liquibase项目
+## Liquibase项目
 
-[互联网医院 -cloud-health-hcrm-liquibase-parent](http://120.25.59.85:3000/hcrm-liquibase)
-
+[liquibase-saas使用指南](https://aoheng.github.io/aohengCloud/#/note/cnhis/Liquibase%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97.md)
 
 
 ## 添加依赖
@@ -61,10 +60,10 @@ public class LiquibaseAutoConfiguration {
 引入以上依赖后 Liquibase 默认就启用了，我们可以在 Spring 配置文件中添加相关的配置，数据库的相关配置请读者朋友根据机器运行环境进行修改。
 
 ```properties
-app.id=hcrm-liquibase
-server.port=8381
-spring.application.name=hcrm_liquibase
-spring.datasource.url=jdbc:postgresql://127.0.0.1:5432/hcrm?createDatabaseIfNotExist=true&useUnicode=true&amp;characterEncoding=UTF-8&amp
+app.id=liquibase-saas
+server.port=8888
+spring.application.name=liquibase-saas
+spring.datasource.url=jdbc:postgresql://127.0.0.1:5432/aoheng?currentSchema=5545
 spring.datasource.username=postgres
 spring.datasource.password=root
 spring.datasource.driver-class-name=org.postgresql.Driver
@@ -142,8 +141,6 @@ CREATE TABLE "public"."tc_token"
     "expire_time"  varchar(255) COLLATE "pg_catalog"."default" DEFAULT NULL::character varying,
     "org_id"       int4
 );
-ALTER TABLE "public"."tc_token"
-    OWNER TO "postgres";
 COMMENT ON COLUMN "public"."tc_token"."access_token" IS '接口调用凭证';
 COMMENT ON COLUMN "public"."tc_token"."expire_time" IS '凭证有效时间，单位：秒';
 ```
@@ -166,9 +163,9 @@ COMMENT ON COLUMN "public"."tc_token"."expire_time" IS '凭证有效时间，单
 
 ## 版本控制建议
 
-为了规范化互联网医院不同客户医院数据库部署，采用Liquibase版本控制很好的针对不同客户部署不同的版本，达到SaaS私有化部署的方案，需要利用不同版本控制部署，比如：
+为了规范化本地化部署，采用Liquibase版本控制很好的针对不同客户部署不同的版本，达到SaaS私有化部署的方案，需要利用不同版本控制部署，比如：
 
-- v1.9.0
+- v1.0.1
 - v2.0.1
 - v3.0.1
 
